@@ -80,3 +80,12 @@ git config --global --unset-all http.proxy
 
 ​	在Linux系统里面,  `./`代表的是当前目录.
 
+## 关于SHELL里面的命令
+
+`env|grep -i proxy`
+
+其中, `|` 是管道命令, 把前一项的结果传递给后面一项. 
+
+此处, env可以打印出所有的environment variables, 然后给grep. 之后, grep根据参数 -i (不区分大小写)找到有proxy的变量. 
+
+>`grep` : Global Search Regular Expression and Print Out the Line. 强大的文本搜索工具.
