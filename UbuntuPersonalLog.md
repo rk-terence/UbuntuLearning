@@ -58,7 +58,7 @@ git config --global --unset-all http.proxy
 
 今天仍旧对Ubuntu系统做了一点实验.
 
-##文件夹的分布:
+## 文件夹的分布:
 
 > 只有一个 `/` 表示时本计算机
 >
@@ -89,3 +89,32 @@ git config --global --unset-all http.proxy
 此处, env可以打印出所有的environment variables, 然后给grep. 之后, grep根据参数 -i (不区分大小写)找到有proxy的变量. 
 
 >`grep` : Global Search Regular Expression and Print Out the Line. 强大的文本搜索工具.
+
+### 接4.19的代理设置
+
+通过实验, 已经查明, 那几个环境变量是我在系统设置中使用了代理并应用于整个系统导致的. 
+因此, 应该仅仅打开shadowsocks也可以实现翻墙. 但是使不使用端口就不确定了.
+
+
+
+# 2018.4.23
+
+## 重要：无系统设置配置代理
+
+昨日对代理的理解更加深入了一层。`shadowsocks-qt5` 的工作机制是：
+
+开始工作，但是只对制定的端口工作。其他的软件如果想要启动代理，必须通过使用`shadowsocks-qt5` 使用的端口才可实现。如果系统设置里面开启了全局代理，那么就会产生proxy的环境变量，让任何一个程序都试图使用那个端口。这样有时候并不好。加入我仅想让Chrome软件翻墙，那么我只需要设置Chrome，让Chrome使用那个端口作为代理就好了。
+
+
+
+## 安装软件：stardict console version
+
+安装成功，但是词典资源比较难找，所以现在还不能进行查词操作。启动方法：
+
+Bash中输入sdcv即可。
+
+
+
+## 下载MATLAB安装包
+
+感觉matlab安装之后太大了，所以决定先不安装matlab。
