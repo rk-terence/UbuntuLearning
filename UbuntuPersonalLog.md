@@ -118,3 +118,25 @@ Bash中输入sdcv即可。
 ## 下载MATLAB安装包
 
 感觉matlab安装之后太大了，所以决定先不安装matlab。
+
+今后如果有机会的话，会尝试安装MATLAB。毕竟如果在ubuntu里面也可以使用的话就很方便了。
+
+
+
+# 2018.4.26
+
+今天在Ubuntu系统里面通过一些命令，把Ubuntu的本地时间改为了+8世界时。至此，Windows和Linux双系统的时间显示不再冲突了。
+
+# 2018.4.28
+
+前几天一直在做国创，在Windows 10 系统里面的国创的`DataAnalysis`仓库里面对做了很多的commit。今天打开Ubuntu，重新进入那个仓库，发现了问题：
+
+1. 使用`git status`命令，发现`working tree`并不是clean的。然而，在windows系统里面，这个仓库最近的提交我已经commit了。
+2. 使用`git fetch`命令，发现本地仓库和远程仓库是同步的。
+
+这两个问题说明，Ubuntu的git的`Local Repository`没有和已经和Windows上面的同步了。但是，`Index（暂存区）`两个系统没有同步。至此送了一口气，只需`git reset --hard HEAD`，返回到Windows最近的提交即可。
+
+但是这样的话，问题即使可以解决，但是还是存在问题的。目前还不清楚彻底的解决方法。猜测的问题来源：
+
+1. Ubuntu系统的Git里面的暂存区和Windows的暂存区不兼容。
+2. Ubuntu和Windows的Git不是同一个账户，从而导致差异。（但是，现在存储区是一样的，所以觉得这种可能性不大）
