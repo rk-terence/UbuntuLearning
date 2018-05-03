@@ -191,3 +191,28 @@ sudo vpn-connect # 等待一会儿，连接成功。
 今后有机会的话，准备转战Ubuntu，如果遇到Linux系统无法轻易解决的问题，再到Windows系统上面解决。所以，我准备安装Matlab。
 
 此外，看到了一个Ubuntu使用utorrent的CSDN帖子，先收藏，之后有机会可以试一试。
+
+## Afternoon
+
+经过一个上午的下载，Ubuntu上面的Matlab下载成功。发现了些许问题：
+
+1. 缩放问题。显示过小。通过命令行的settings调整，把PersonalValue调整到1.25，大致解决问题。
+
+2. 中文字符乱码。经过调查，发现是因为在Windows下面编写的代码的语言是GBK编码的。然而，Matlab在Linux下面的默认编码模式是UTF-8. 故出现问题。现在在网上找到了一个帖子，可能可以解决问题：
+
+   [ubuntu下文件编码查看与转换](https://blog.csdn.net/Eric_LH/article/details/77435097)
+
+   ```shell
+   # 1.查看文件编码使用file命令 
+   file filename.txt 
+   # output: filename.txt UTF-8 Unicode text, with escape sequences
+
+   # 2.编码格式转换使用iconv命令 
+   # iiconv的命令格式如下： 
+   iconv -f encoding -t encoding inputfile 
+   # 比如将一个UTF-8 编码的文件转换成GBK编码 
+   iconv -f UTF-8 -t GBK file1 -o file2
+   ```
+
+   摘自该网页。
+
