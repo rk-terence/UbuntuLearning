@@ -188,6 +188,8 @@ sudo vpn-connect # 等待一会儿，连接成功。
 
 # 2018.5.3
 
+## Morning
+
 今后有机会的话，准备转战Ubuntu，如果遇到Linux系统无法轻易解决的问题，再到Windows系统上面解决。所以，我准备安装Matlab。
 
 此外，看到了一个Ubuntu使用utorrent的CSDN帖子，先收藏，之后有机会可以试一试。
@@ -215,4 +217,95 @@ sudo vpn-connect # 等待一会儿，连接成功。
    ```
 
    摘自该网页。
+
+3. 再次切换到Ubuntu系统，使用上述命令之后，发现得到了转换。不过，有个小问题不是很明白，就是使用命令`file PreprocessData_Beta`（ANSI，GBK）的时候，输出是：
+
+   `PreProcessData_Beta.m: ISO-8859 text`
+
+   ISO-8859似乎是一个国际的编码方式，不是太了解为什么。按照我的理解，此处应该显示的是`GBK`.
+
+
+
+
+# 2018.5.8
+Today, several new progress.
+## New commands learned in BASH
+### about files:
+1. about files
+   sudo touch myfile
+   sudo gedit myfile
+   sudo rm myfile
+   sudo mv file1 file2	# change the name of a file
+   sudo mv filename target_destination
+   
+2. about directories
+   sudo mkdir mydir
+   sudo rmdir mydir # delete an empty direcroty
+   sudo rm -rf mydir	# delete an non-empty direcroty
+   sudo mv dir1 dir2 # change the location of dir1 to dir2
+
+3. about `cp`
+   grammar:
+   > cp [option] file_or_directory target_file_or_directory
+
+## Java JDK 'installation'
+Today I had the first class of Java.
+
+During this session, I learned new concepts of JDK, JVM, heap and stack in Java, and so on. 
+
+I tried to download JDK on my own computer. Firstly, `IntelliJ IDEA`. When installation (if that can be called an installation) is finished, the IDE told me that there is no JDK in my PC. So I started downloading it.
+
+I downloaded from oracle's official site, and the version:
+
+```
+java version "10.0.1" 2018-04-17
+Java(TM) SE Runtime Environment 18.3 (build 10.0.1+10)
+Java HotSpot(TM) 64-Bit Server VM 18.3 (build 10.0.1+10, mixed mode)
+```
+
+This version is the newest. After installation, I started to add it into the environment variables. I tried `/etc/profile`, **but that seems to be available only on the current terminal**. When I closed the terminal, `java -version` will return nothing but the tip of how to install packages related with Java.
+
+## New progress about the environment variables
+There are 3 levels of environment variables. 
+1. System level
+   environment variables can be useful for all users.
+   to add them, you can:
+   
+
+2. User level
+   useful for only one user.
+   `~/.bashrc`
+   `~/.bash_profile`
+   
+3. Shell level
+   only available in current terminal.
+   
+**Frequently used commands to set environment variables**
+> echo $
+> export # Set new env.
+> env 
+> set
+> unset
+> readonly
+> To modify an env, just simply use `MYNAME = "xxx"`.
+
+
+## Solve the problem of sougou-qimpanel
+Recently, I frequently meet the problem that sougoupinyin doesn't work correctly. It is not that easy to solve without looking for help on the Internet. 
+
+On website
+[Ubuntu16.04下搜狗输入法不能输入中文（重启搜狗输入法）](https://blog.csdn.net/miaoqiucheng/article/details/53350963)
+I have found one possible solution. 
+
+I should type in in BASH:
+
+```shell
+killall fcitx # kill the progress fcitx
+killall sogou-qimpanel # kill the sougoupinyin
+fcitx # Restart fcitx
+```
+
+I hope this can work next time I meet this problem.
+
+
 
