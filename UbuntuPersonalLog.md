@@ -270,7 +270,6 @@ There are 3 levels of environment variables.
 1. System level
    environment variables can be useful for all users.
    to add them, you can:
-   
 
 2. User level
    useful for only one user.
@@ -289,6 +288,20 @@ There are 3 levels of environment variables.
 > readonly
 > To modify an env, just simply use `MYNAME = "xxx"`.
 
+**several frequently used envs**
+1. PATH
+2. HOME
+3. HISTSIZE
+4. LOGNAME
+5. HOSTNAME
+6. SHELL
+7. LANG/LANGUAGE
+8. MAIL
+9. PS1
+10. PS2
+11. SECONDS
+
+Time is limited, so when I get in touch with those variables listed above, I will learn them.
 
 ## Solve the problem of sougou-qimpanel
 Recently, I frequently meet the problem that sougoupinyin doesn't work correctly. It is not that easy to solve without looking for help on the Internet. 
@@ -307,5 +320,54 @@ fcitx # Restart fcitx
 
 I hope this can work next time I meet this problem.
 
+I have tried to solve this through the tips above. But that seems not work. I have tried `killall fcitx`, but it seems to restart soon after I kill it. I do not know why, maybe it can automatically start up. Question not solved. I need to get more knowledge about it.
 
 
+
+# 2018.5.9
+
+Today, more of the permissions in Linux system.
+
+This action is motivated by the hardness of using wudao-dictionary. When I use this, I must use `sudo su - root` to let the bash get the root access. Otherwise, I need to add additional `sudo` to every command related to wudao-dictionary.
+
+This added to my inconvience. I want to solve this.
+
+From the *Python Traceback*, I can see that it is because of the writing of a file located in */Softwares/.../usr/*.** is denied on accound of lack of permission.
+
+After consulting to the Internet, I find that `chmod` can help me change the permission status.
+
+The instructions are copied from `chmod --help`
+
+用法：chmod [选项]... 模式[,模式]... 文件...
+　或：chmod [选项]... 八进制模式 文件...
+　或：chmod [选项]... --reference=参考文件 文件...
+Change the mode of each FILE to MODE.
+With --reference, change the mode of each FILE to that of RFILE.
+
+  -c, --changes          like verbose but report only when a change is made
+  -f, --silent, --quiet  suppress most error messages
+  -v, --verbose          output a diagnostic for every file processed
+      --no-preserve-root  do not treat '/' specially (the default)
+      --preserve-root    fail to operate recursively on '/'
+      --reference=RFILE  use RFILE's mode instead of MODE values
+  -R, --recursive        change files and directories recursively
+      --help		显示此帮助信息并退出
+      --version		显示版本信息并退出
+
+Each MODE is of the form '[ugoa]*([-+=]([rwxXst]*|[ugo]))+|[-+=][0-7]+'.
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+请向<http://translationproject.org/team/zh_CN.html> 报告chmod 的翻译错误
+Full documentation at: <http://www.gnu.org/software/coreutils/chmod>
+or available locally via: info '(coreutils) chmod invocation'
+
+Some specific examples
+
+```shell
+chmod u+x,g+w f01　　//为文件f01设置自己可以执行，组员可以写入的权限
+chmod u=rwx,g=rw,o=r f01
+chmod 764 f01
+chmod a+x f01　　//对文件f01的u,g,o都设置可执行属性
+```
+
+After the modification using `chmod`, I can successfully use `wudao-dict` without root access in terminal!
