@@ -371,3 +371,18 @@ chmod a+x f01　　//对文件f01的u,g,o都设置可执行属性
 ```
 
 After the modification using `chmod`, I can successfully use `wudao-dict` without root access in terminal!
+
+
+
+
+# 2018.5.10
+Yesterday evening, I installed zsh and oh-my-zsh, for I have seen it recommended several times on Zhihu. 
+
+`zsh` is a shell. And oh-my-zsh is a configuration tool to make zsh more powerful.
+
+After installation, I followed the oh-my-zsh github page to configure it. Everything seems fine, and now my default shell is zsh.
+
+A good try, isn't it?
+
+
+
