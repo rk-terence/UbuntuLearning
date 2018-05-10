@@ -376,6 +376,7 @@ After the modification using `chmod`, I can successfully use `wudao-dict` withou
 
 
 # 2018.5.10
+## 
 Yesterday evening, I installed zsh and oh-my-zsh, for I have seen it recommended several times on Zhihu. 
 
 `zsh` is a shell. And oh-my-zsh is a configuration tool to make zsh more powerful.
@@ -383,6 +384,21 @@ Yesterday evening, I installed zsh and oh-my-zsh, for I have seen it recommended
 After installation, I followed the oh-my-zsh github page to configure it. Everything seems fine, and now my default shell is zsh.
 
 A good try, isn't it?
+
+## Problem of sogou-qimpanel
+I can no longer stand the unstability of sogou-qimpanel. I can logout to solve this temporatily, but this wastes my time. More importantly, this will let me lose the work I am doing.
+
+After balancing, I chose to remove sogou-qimpanel.
+
+I installed fictx-googlepinyin, but soon discovered that this is much similar to the original Input Method of Ubuntu. So, I removed googlepinyin, and then returned to the original Input Method. 
+
+Up to now, no big problems happen to me. This is not that convience but stable.
+
+## evince
+I've found the package name of `文档查看器` is `evince`.
+
+Sometimes, not knowing the exact name of a package is frustrating. Now, I don't have the quick method to check what the name of the program is.
+
 
 
 
