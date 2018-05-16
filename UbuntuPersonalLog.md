@@ -6,7 +6,7 @@
 
 使用polipo进行了sock5代理转http代理。希望可以管用。具体使用方法：
 
-`sudo service polipo start` 可以开启polipo的服务。
+`sudo service polipo ` start可以开启polipo的服务。
 
 `export http_proxy="http://127.0.0.1:8123/"` 可以暂时打开端口作为http_proxy。
 
@@ -332,7 +332,7 @@ This action is motivated by the hardness of using wudao-dictionary. When I use t
 
 This added to my inconvience. I want to solve this.
 
-From the *Python Traceback*, I can see that it is because of the writing of a file located in */Softwares/.../usr/*.** is denied on accound of lack of permission.
+From the *Python Traceback*, I can see that it is because of the writing of a file located in */Softwares/.../usr/...* is denied on accound of lack of permission.
 
 After consulting to the Internet, I find that `chmod` can help me change the permission status.
 
@@ -399,6 +399,65 @@ I've found the package name of `文档查看器` is `evince`.
 
 Sometimes, not knowing the exact name of a package is frustrating. Now, I don't have the quick method to check what the name of the program is.
 
+## COMMAND --help
+I have found this command extremely useful. This can help me be familiar with the command without consulting the Internet.
+
+For example, I learned how to get the detailed info of a dir (`ls -l`) through `ls --help`.
+
+## An Attempt to Use VIM (Failed)
+I have found it hard to start using vim.
+I give up. Gedit is good.
+
+
+# 2018.5.16
+Today, more of theoretical learning of BASH shell language.
+
+## !
+`!` is called *Event Designator*, which can help us easily refer to commands in history.
+
+There are three ways to use it:
+
+- `!n` It will turn into the nth command.
+- `!-n` the last nth command.
+- `!!` means `!-1`
+- `!string` It will turn into the most recent command that started with *string*.
+- `!?string[?]` a command that contains *string*. The second *?* can be omitted.
+
+What's more, in bash language, 
+
+`#!/bin/sh` means this script will be interpreted and implemented by */bin/sh.*
+
+
+## About Quotation Marks in BASH
+In Bash, '', "", and `` have different meanings.
+
+- ''
+  '' means to simply transfer what's inside into a string. For example,
+  `'\$HOME'`
+  will be the same as `\$HOME`.
+  
+- ""
+  "" can also turn what's inside into a string. However, This time, some special characters will take effect. For example, 
+  **!, $, \, and |**
+  
+- ``
+  `` can into a the output of the implementation of what's inside.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
