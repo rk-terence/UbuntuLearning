@@ -429,7 +429,7 @@ What's more, in bash language,
 
 
 ## About Quotation Marks in BASH
-In Bash, '', "", and `` have different meanings.
+In Bash, '', "", and ` ` have different meanings.
 
 - ''
   '' means to simply transfer what's inside into a string. For example,
@@ -440,24 +440,24 @@ In Bash, '', "", and `` have different meanings.
   "" can also turn what's inside into a string. However, This time, some special characters will take effect. For example, 
   **!, $, \, and |**
   
-- ``
-  `` can into a the output of the implementation of what's inside.
+- ` `
+  ` ` can into a the output of the implementation of what's inside.
 
 
+# 2018.5.17
+Now I started the learning of VIM.
 
+I know it will take me some time to be familiar with the operations, but I believe this can save time (What is more important is that I think this is cool). 
 
+I have just finished the tutor, and now I basically know what vim can do and what vim can not do. I will further do some other work to make *vim* more of my own preferred style.
 
+Next step:
+**Prompts**.
 
+## Auto completion of brackets and paratheses!
+I have made the auto completion of brackets and paratheses complete!
+Just like what I did on VS!
+COOL!!!
 
-
-
-
-
-
-
-
-
-
-
-
-  
+## Coding Prompts!
+coding prompts is a built-in function in VIM. I can use [Ctrl+p] or [Ctrl+n] to activate it whenever I want.
