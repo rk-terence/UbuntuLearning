@@ -461,3 +461,38 @@ COOL!!!
 
 ## Coding Prompts!
 coding prompts is a built-in function in VIM. I can use [Ctrl+p] or [Ctrl+n] to activate it whenever I want.
+
+
+# 2018.5.18
+Today, I continued to edit with VIM. VIM is a great editor, but there are still some problems.
+
+## VIM-GTK
+One thing is, I previously cannot paste from the clipboard of the Linux System.
+To address this, I surfed the Internet. On the Internet, they suggested installing vim-gtk. It seems to be a extension of VIM, with which I can have more regesters to visit the clipboard.
+
+I installed that, and now I can copy text from outside VIM.
+
+## Multiple files in VIM
+I think this is the time to learn how to operate with multiple files on VIM.
+I've read the tutorial file, and now I know the basic commands to edit different files and change to different files.
+
+
+# 2018.5.22
+Today, new learning of VIM.
+
+## VScode on Windows.
+I turned back to windows, and found that the font *consolas* is beautiful. VScode is beautiful, and it also supports the VIM plug-in. For now, I think VScode is more convenient than pure vim. But I think as I know more about VIM, my thoughts will change. I will have more powerful *.vimrc* and more powerful syntax highlighting and more powerful language support in VIM.
+
+However, this takes time. To get this more of mine, I need to spend more time on it.
+
+## VIM syntax highlighting
+I learned how VIM does the syntax highlighting through the help file.
+
+First, VIM have some built in types like *statement, type, ...*. With these built-in types, I can define some keywords that can be categorized into the categories. So the highlight strategy can work. The color and the appearance of a letter can be changed through a file.
+
+## VIM indent
+VIM has built-in indent ways for C or C-like languages, such as c, cpp, and java. For these languages, I can simply turn `cindent` on. However, I found this not helpful on my own PC. After several attempts to find out the reason, I found that it was because I have set the `ioremap` for brackets autocomplete. This is will cause the original function of Cindent not to work properly.
+
+Maybe I should choose one to satisfy another. For now, I think auto-indent for a language is very useful, so I disabled the inremap. Now, cindent appears good for me, except that no autocompletions are made.
+
+I up to now don't know how to get both satisfied. Maybe this can be done, but as my knowledge of VIM is so limited, I cannot do it right now.
