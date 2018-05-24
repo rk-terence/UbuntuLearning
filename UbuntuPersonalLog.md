@@ -493,6 +493,25 @@ First, VIM have some built in types like *statement, type, ...*. With these buil
 ## VIM indent
 VIM has built-in indent ways for C or C-like languages, such as c, cpp, and java. For these languages, I can simply turn `cindent` on. However, I found this not helpful on my own PC. After several attempts to find out the reason, I found that it was because I have set the `ioremap` for brackets autocomplete. This is will cause the original function of Cindent not to work properly.
 
-Maybe I should choose one to satisfy another. For now, I think auto-indent for a language is very useful, so I disabled the inremap. Now, cindent appears good for me, except that no autocompletions are made.
+Maybe I should choose one to satisfy another. For now, I think auto-indent for a language is very useful, so I disabled the ioremap. Now, cindent appears good for me, except that no autocompletions are made.
 
 I up to now don't know how to get both satisfied. Maybe this can be done, but as my knowledge of VIM is so limited, I cannot do it right now.
+
+
+# 2018.5.24 About directory names in Linux System
+In most Linux systems, the names of directories are very similiar. They seem to obey the same rule.
+
+For example, on my ubuntu system, there are directories named *usr, etc, bin, and so on*.
+
+- usr
+  In *usr*, there are apps. It means that Apps are installed in *usr* instead of other directories by default.
+
+- etc
+  In a linux system, *etc* are the abbreviation of *et cetera*. This is a bit because that configuration files are stored in it.
+
+- share
+  In share directory, there are files can be shared. my understanding is this: other files can visit this directory to help with their connection with other apps.
+
+  For example, in DIR: */usr/share/applications/*, there are many files that mark an app. They are shortcuts for applications. Just a few minutes ago, I established a desktop file in that direcroty to get a quick start of TIM(based on wine, it is an AppImage file). After a few failed attempts, I succeeded.
+ 
+
