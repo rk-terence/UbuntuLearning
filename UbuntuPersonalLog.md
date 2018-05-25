@@ -515,3 +515,21 @@ For example, on my ubuntu system, there are directories named *usr, etc, bin, an
   For example, in DIR: */usr/share/applications/*, there are many files that mark an app. They are shortcuts for applications. Just a few minutes ago, I established a desktop file in that direcroty to get a quick start of TIM(based on wine, it is an AppImage file). After a few failed attempts, I succeeded.
  
 
+# 2018.5.25 new command in shell
+
+## &
+In linux system, `&` command means to let the command before it run at the backstage. For example, if I run a command that needs to run for a long time, and I do not want to open another shell to do another work during this time, I can use `&`. However, the command that it runs will return results on the same shell, and you will propably be annoyed by it.
+
+## nohup
+`nohup` is the abbreviation of *no hang up*. From its name, we can see that the function is that when you exit from the terminal, the work will not be terminated. Instead, the work will continue when you terminate the shell. If you want to cancel it, you should use `ps` command to find the PID of it, and then kill it.
+
+Example:
+
+```shell
+nohup command &
+```
+
+However, when I use this method for netease-cloud-music, this doesn't work, but pycharm work well. This may be due to the inner cause of netease-cloud-music.
+
+
+Through this learning, I think it is the time that I find a systematic book about linux to learn it. My knowledge from Baidu is just too fragmented, and whenever I meet a problem, I need to find how to do it online, and then many other fields that I don't understand will come out. This feeling is not good.
