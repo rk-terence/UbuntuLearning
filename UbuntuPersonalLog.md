@@ -376,7 +376,6 @@ After the modification using `chmod`, I can successfully use `wudao-dict` withou
 
 
 # 2018.5.10
-## 
 Yesterday evening, I installed zsh and oh-my-zsh, for I have seen it recommended several times on Zhihu. 
 
 `zsh` is a shell. And oh-my-zsh is a configuration tool to make zsh more powerful.
@@ -513,7 +512,7 @@ For example, on my ubuntu system, there are directories named *usr, etc, bin, an
   In share directory, there are files can be shared. my understanding is this: other files can visit this directory to help with their connection with other apps.
 
   For example, in DIR: */usr/share/applications/*, there are many files that mark an app. They are shortcuts for applications. Just a few minutes ago, I established a desktop file in that direcroty to get a quick start of TIM(based on wine, it is an AppImage file). After a few failed attempts, I succeeded.
- 
+
 
 # 2018.5.25 new command in shell
 
@@ -533,3 +532,35 @@ However, when I use this method for netease-cloud-music, this doesn't work, but 
 
 
 Through this learning, I think it is the time that I find a systematic book about linux to learn it. My knowledge from Baidu is just too fragmented, and whenever I meet a problem, I need to find how to do it online, and then many other fields that I don't understand will come out. This feeling is not good.
+
+
+
+# About fonts 2018.6.1
+Yesterday and today, I had some research about the fonts in Linux system. Although this may be superficial, I think it has improved my knowledge.
+
+## About regular, bold, and italic
+For a true type font, the *filename extension* can both be *ttf* and *ttc*. Generally, a *.ttc* file has more than one font. A good font series must have its relavent **regular**, **bold**, **italic** and **bold-italic** font series. If it do not, some editors cannot provide the bold or italic utility while editing. Some editors might, but that might be ugly, because it does the same to all the fonts.
+
+However, some fonts do have its own matched bold and italic version inside one file. (My guess).
+
+## Change the font in a typora theme
+To do this, you need to change the *ThemeName.css* file. I was changing *academic.css* file, and this works. 
+
+## Change the default font of the system of san-serif, serif, and monospaced
+To do this, I need to change the */etc/fonts/conf.d/69-language-selector-zh-cn.conf* file. Inside this file, there will be a list of fonts that will be loaded for the three types of fonts. I guess the fonts are loaded in the pre-defined priority list.
+
+However, this does not work instantly I changed the file. Maybe I need to reboot the computer.
+
+It seems that rebooting my computer doesn't work. I don't know why now.
+
+### New progress! I made it！
+
+为了表明我的成功，这里我要用刚刚配置成功的*Adobe Song Std*，使用中文。这个字体，一个文件即包含Regular, Italic, Bold三种内置方案。
+
+我刚刚一直在尝试把这个电脑系统的内置默认*Serif*字体设置为*Adobe Song Std*。但是，改变*/etc/fonts/conf.avail/69-language-selector-zh-cn.conf*，改变优先级之后，把Typora的默认启动字体改为Serif，但是发现Typora启动之后字体还是AR PL Uming。十分恼火，理论上应该要变的。
+
+这过程中，还尝试安装了其他的一个Utility tweak软件，管理桌面，但是不能改变默认Serif字体。。
+
+百思未得解。最终，在dir: `/etc/fonts/conf.d/`下面发现.conf文件中有不少名字里面都带*uming*！这会不会就是我的突破口？会不会是其他的配置文件强行把uming设置为了优先级最髙？因为对.conf文件的操作不熟悉，所以我的办法是先删除这几个符号链接，看看会有什么后果。删除之后，重启Typora，发现，字体已经变成Adobe Song Std了！哈哈，终于成功。
+
+This experice really gave me a lesson. When you meet a problem, stay calm and be patient. Calmly analyse it, and finally you will find out why. I think, this can be the bad aspect of debugging, but When you successfully solve a problem, it will turn into complete joy!
