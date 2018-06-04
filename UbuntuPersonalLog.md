@@ -6,7 +6,7 @@
 
 使用polipo进行了sock5代理转http代理。希望可以管用。具体使用方法：
 
-`sudo service polipo ` start可以开启polipo的服务。
+`sudo service polipo start`可以开启polipo的服务。
 
 `export http_proxy="http://127.0.0.1:8123/"` 可以暂时打开端口作为http_proxy。
 
@@ -564,3 +564,90 @@ It seems that rebooting my computer doesn't work. I don't know why now.
 百思未得解。最终，在dir: `/etc/fonts/conf.d/`下面发现.conf文件中有不少名字里面都带*uming*！这会不会就是我的突破口？会不会是其他的配置文件强行把uming设置为了优先级最髙？因为对.conf文件的操作不熟悉，所以我的办法是先删除这几个符号链接，看看会有什么后果。删除之后，重启Typora，发现，字体已经变成Adobe Song Std了！哈哈，终于成功。
 
 This experice really gave me a lesson. When you meet a problem, stay calm and be patient. Calmly analyse it, and finally you will find out why. I think, this can be the bad aspect of debugging, but When you successfully solve a problem, it will turn into complete joy!
+
+
+
+# 2018.6.2 从windows拷贝宋体、仿宋、楷体、consolas
+
+经过昨天的学习，我终于可以从Windows拷贝宋体了。不知为何，在Linux界面下访问Windows系统盘找不到字体原文件，必须先把文件复制到其他的盘才可以发现字体原文件。猜测是符号链接的原因。
+
+使用宋体之后，整个文档都编号看了，感觉比adobe song std更好看。
+
+接下来，准备把其他的等宽字体设置为Consolas，毕竟最喜欢Consolas。
+
+
+
+# 2018.6.4
+
+Today, more of fontconfig. What's more, I learned how to write a shell script and run a script at upstart of Linux system. 
+
+## VIM color syntax: assign desired syntax highlighting principle to an opened VIM file\
+
+This is learned from the VIM help.txt.
+
+When open a new file, or when open a file that VIM cannot automatically recognize it as a specific language, you can tell VIM what color mode it should apply to the file.
+
+For example, when you use `vim shellscriptfilename`, VIM will create a new file for you, but it doesn't know how to highlight it because VIM can't judge what kind of file it is from the start. This is the time when you should use:
+
+```vim
+:set filetype=bash
+```
+
+to get it the correct syntax highlighting plan.
+
+What's more, `:set filetype` will simply tell you what syntax highlighting plan VIM is using for the current file.
+
+
+
+## Shell script
+
+To write a shell script is simple. To start up, you need a file that is a script(The name of can be arbitrary)
+
+The first line must be:
+
+```shell
+### If you want bash to execute it:
+#!/bin/bash
+### If you want zsh to execute it:
+#!/bin/zsh
+### If you simply want sh to execute it:
+#!/bin/sh
+```
+
+Then, several implementations should follow, which are a lot like what you type in bash or zsh or sh.
+
+NOTE:
+
+If you want the file to be executable, you also need to set the access of the file using `chmod`.
+
+
+
+### init.d, rc
+
+If I want to run a script every time Linux system starts, I should care about init.d and rc.
+
+A simpler way is to add some extra lines to file */etc/rc.local* before `exit 0`. However, I think to get what you want to be executed in different files will be organizable. So I use another method, which is a little bit more complex:
+
+I add a file in */etc/init.d*, and then use:
+
+```shell
+update-rc.d [-n][-f] basename defaults NUM 
+```
+
+to get it work (My understanding is to get it registered, which in detail is to set a symlink in *rcn.d*, and add *Snn* at the front of the symlink)
+
+To disable it, use:
+
+```shell
+update-rc.d [-f] basename remove
+```
+
+
+
+##fontconfig
+
+I have spent totally much time in this. Now, I disabled *03-chinese-selector.conf* by removing *03-* in its filename. I think since most of the applications that call *fontconfig* treat the *lang* as zh-CN, two distinct rules for choosing the font will be more or less needless.
+
+Now it works fine, except on Typora and Chrome. However, that is not a great matter. In typora, I can set add *SimSun* at the last of the font-family in one theme's .css file to solve this.
+
+At least English fonts are working fine. 
